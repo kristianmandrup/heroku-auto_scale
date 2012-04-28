@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "heroku-auto_scale"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -20,11 +20,21 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "config/heroku/worker_auto_scale.yml",
+    "heroku-auto_scale.gemspec",
     "lib/heroku-auto_scale.rb",
+    "lib/heroku_resque/auto_scale.rb",
+    "lib/heroku_resque/auto_scale/loader.rb",
+    "lib/heroku_resque/auto_scale/scaler.rb",
+    "lib/heroku_resque/rails/engine.rb",
+    "lib/heroku_stack.rb",
     "spec/heroku-auto_scale_spec.rb",
+    "spec/jobs/scaling_job.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/kristianmandrup/heroku-auto_scale"
