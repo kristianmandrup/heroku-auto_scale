@@ -1,4 +1,5 @@
 require 'heroku_resque/auto_scale/scaler'
+require 'heroku_resque/auto_scale/loader'
 
 module HerokuResque
   module AutoScale
@@ -11,6 +12,10 @@ module HerokuResque
 
     class << self
       attr_writer :default_config, :job_counts
+
+      def load_job_counts!
+        self.job_counts = HerokuResque::AutoScale::Loader.job_counts
+      end
 
       def job_counts
         @job_counts ||= [1, 15, 25, 40, 60, 100, 150]

@@ -9,6 +9,13 @@ The `job_counts` is list that is used to define how many jobs are run for the nu
 ```ruby
 HerokuResque::AutoScale.job_counts[2] = 22 # 22 max jobs for 2 workers
 HerokuResque::AutoScale.job_counts = [1,4,8,16,32,64]
+
+# load jobcounts list from config/heroku/worker_auto_scale.yml
+HerokuResque::AutoScale.job_counts = HerokuResque::AutoScale::Loader.job_counts
+
+# or configure filename to use before load
+HerokuResque::AutoScale::Loader.file_name = 'job_counts.yml'
+HerokuResque::AutoScale.load_job_counts!
 ```
 
 ## Usage
@@ -30,7 +37,7 @@ You can customize the Heroku stack used like this:
 
 `HerokuStack.name = 'my-stack'`
 
-We might have to adjust the code in order to support different stacks with different Process models in the future...
+We might have to adjust the code in `scaler.rb`order to support Heroku stacks with different Process models in the future...
 
 ## Contributing to heroku-auto_scale
  
