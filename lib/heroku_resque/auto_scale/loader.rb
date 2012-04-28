@@ -10,7 +10,7 @@ module HerokuResque
 
         attr_writer :file_name
         def file_name
-          @file_name = ||= 'worker_auto_scale.yml'
+          @file_name ||= 'worker_auto_scale.yml'
         end
 
         def path
